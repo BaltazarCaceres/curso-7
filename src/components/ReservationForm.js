@@ -13,7 +13,7 @@ function ReservationForm() {
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const [loading, setLoading] = useState(false); // ✅ dentro del componente
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +33,6 @@ function ReservationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validaciones
     if (formData.phone.length !== 10) {
       setError('El teléfono debe tener exactamente 10 dígitos.');
       return;
@@ -61,16 +60,15 @@ function ReservationForm() {
 
     setError('');
     setSuccess('');
-    setLoading(true); // ✅ inicia animación
+    setLoading(true);
 
-    // Enviar al backend
     fetch('http://localhost:3001/api/reservaciones', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     })
       .then((res) => {
-        setLoading(false); // ✅ detiene animación
+        setLoading(false);
         if (res.ok) {
           setSuccess(`Reserva confirmada para ${formData.name} el ${formData.date} a las ${formData.time} para ${formData.guests} personas.`);
           setFormData({
