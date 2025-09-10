@@ -1,0 +1,99 @@
+.contact-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fefefe; /* Cambia este color si tus otras pestañas usan otro fondo */
+}
+
+.contact-content {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch; /* 🔥 iguala la altura entre imagen y formulario */
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contact-image-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+
+.contact-image-area img {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  object-fit: cover; /* 🔥 mantiene proporción y llena el espacio */
+  border-radius: 12px;
+}
+
+.contact-form-area {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-form-area h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #495e57;
+  text-align: center;
+}
+
+.contact-form-area p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  background-color: #f4ce14;
+  color: #495e57;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #e0b800;
+}
+
+.contact-info {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center; /* centra dirección y contacto */
+}

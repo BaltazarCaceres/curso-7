@@ -1,0 +1,40 @@
+.about-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.about-values {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.value-card {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+.value-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 0.5rem;
+}
+
+.value-card h3 {
+  margin-top: -0.5rem; /* sube el título más cerca de la imagen */
+  font-size: 1.2rem;
+  color: #495e57;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}

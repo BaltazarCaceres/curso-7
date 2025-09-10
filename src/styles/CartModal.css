@@ -1,0 +1,177 @@
+/* Fondo oscuro para el modal */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  z-index: 1000;
+}
+
+/* Contenedor del modal */
+.cart-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  animation: slideUp 0.4s ease;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Botón de cerrar */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+}
+
+/* Lista de productos */
+.cart-item {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+/* Imagen del producto */
+.cart-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Detalles del producto */
+.cart-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cart-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.cart-price {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #d9534f;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+
+/* Botón eliminar */
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #d9534f;
+  cursor: pointer;
+}
+
+/* Campo de descuento */
+.discount-input {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Botón de WhatsApp */
+.whatsapp-btn {
+  background-color: #25d366;
+  color: white;
+  padding: 0.75rem;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1da851;
+}
+
+.whatsapp-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ✅ Botón flotante en esquina inferior derecha */
+.open-cart-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f4ce14;
+  color: #495e57;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.open-cart-btn:hover {
+  transform: scale(1.1);
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #d9534f;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
