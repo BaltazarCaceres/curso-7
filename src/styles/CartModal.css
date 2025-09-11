@@ -141,7 +141,7 @@
   opacity: 0.6;
 }
 
-/* ✅ Botón flotante en esquina inferior derecha */
+/* Botón flotante en esquina inferior derecha */
 .open-cart-btn {
   position: fixed;
   bottom: 20px;
