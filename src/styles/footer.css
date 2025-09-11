@@ -32,3 +32,18 @@
   font-size: 0.9rem;
   color: #f4ce14;
 }
+
+.footer {
+  background-color: #495e57;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
