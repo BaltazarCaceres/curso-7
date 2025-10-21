@@ -65,11 +65,38 @@ button:hover {
   background-color: #e6bd0f;
 }
 
+/* Mensajes de estado */
 .error {
-  color: red;
-  font-weight: bold;
+  color: #d9534f;
+  background-color: #f8d7da;
+  padding: 0.5rem;
+  border-radius: 6px;
   margin-top: 1rem;
   text-align: center;
+}
+
+.success {
+  color: #155724;
+  background-color: #d4edda;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Animación de carga */
+.loader {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #495e57;
+  text-align: center;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
 }
 
 /* Responsive para móviles */

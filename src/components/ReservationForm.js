@@ -12,17 +12,19 @@ function ReservationForm() {
   });
 
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [loading, setLoading] = useState(false); // ✅ dentro del componente
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     let cleanValue = value;
 
     if (name === 'phone') {
-      cleanValue = value.replace(/[^0-9]/g, '').slice(0, 10); // solo números, máx 10 dígitos
+      cleanValue = value.replace(/[^0-9]/g, '').slice(0, 10);
     }
 
     if (name === 'name') {
-      cleanValue = value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, ''); // solo letras y espacios
+      cleanValue = value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');
     }
 
     setFormData(prev => ({ ...prev, [name]: cleanValue }));
@@ -58,95 +60,71 @@ function ReservationForm() {
     }
 
     setError('');
-    alert(`Reserva confirmada para ${formData.name} el ${formData.date} a las ${formData.time} para ${formData.guests} personas.`);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      time: '',
-      guests: 1,
-    });
+    setSuccess('');
+    setLoading(true); // ✅ inicia animación
+
+    // Enviar al backend
+    fetch('http://localhost:3001/api/reservaciones', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+      .then((res) => {
+        setLoading(false); // ✅ detiene animación
+        if (res.ok) {
+          setSuccess(`Reserva confirmada para ${formData.name} el ${formData.date} a las ${formData.time} para ${formData.guests} personas.`);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            date: '',
+            time: '',
+            guests: 1,
+          });
+        } else {
+          setError('Hubo un error al guardar la reservación.');
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.error(err);
+        setError('No se pudo conectar con el servidor.');
+      });
   };
 
   return (
     <form className="reservation-form" onSubmit={handleSubmit}>
       <h2>Reserva tu mesa</h2>
 
-      <label>
-        Nombre:
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
+      <label>Nombre:
+        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
       </label>
 
-      <label>
-        Correo electrónico:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+      <label>Correo electrónico:
+        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
       </label>
 
-      <label>
-        Teléfono:
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          maxLength="10"
-          required
-        />
+      <label>Teléfono:
+        <input type="tel" name="phone" value={formData.phone} onChange={handleChange} maxLength="10" required />
       </label>
 
-      <label>
-        Fecha:
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          required
-          min={new Date().toISOString().split('T')[0]} // solo fechas futuras
-        />
+      <label>Fecha:
+        <input type="date" name="date" value={formData.date} onChange={handleChange} required min={new Date().toISOString().split('T')[0]} />
       </label>
 
-      <label>
-        Hora:
-        <input
-          type="time"
-          name="time"
-          value={formData.time}
-          onChange={handleChange}
-          required
-          min="12:00"
-          max="22:00"
-        />
+      <label>Hora:
+        <input type="time" name="time" value={formData.time} onChange={handleChange} required min="12:00" max="22:00" />
       </label>
 
-      <label>
-        Número de personas:
-        <input
-          type="number"
-          name="guests"
-          value={formData.guests}
-          onChange={handleChange}
-          min="1"
-          max="20"
-          required
-        />
+      <label>Número de personas:
+        <input type="number" name="guests" value={formData.guests} onChange={handleChange} min="1" max="20" required />
       </label>
 
+      {loading && <div className="loader">Enviando reservación...</div>}
       {error && <p className="error">{error}</p>}
-      <button type="submit">Reservar</button>
+      {success && <p className="success">{success}</p>}
+
+      <button type="submit" disabled={loading}>Reservar</button>
     </form>
   );
 }
