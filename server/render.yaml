@@ -3,8 +3,8 @@ services:
     name: little-lemon-backend
     env: node
     plan: free
-    buildCommand: npm install
-    startCommand: node server.js
+    buildCommand: cd server && npm install
+    startCommand: cd server && node server.js
     autoDeploy: true
     envVars:
       - key: MONGODB_URI
