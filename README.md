@@ -1,26 +1,20 @@
-# 🍋 Little Lemon Backend – Curso 8
+# 🗂️ Repositorio legado – Little Lemon (Curso 7)
 
-Este repositorio contiene el backend del proyecto **Little Lemon**, desarrollado como parte del Curso 8.  
-La aplicación gestiona reservas, datos de clientes y operaciones del restaurante mediante una API REST construida con Node.js y MongoDB.
+Este repositorio contiene una versión anterior del proyecto **Little Lemon**, desarrollada durante el Curso 7. Originalmente incluía tanto el frontend como el backend en una sola estructura.
 
-## 🚀 Características principales
+## ⚠️ Estado actual
 
-- API REST para gestión de reservas
-- Conexión a base de datos MongoDB Atlas
-- Rutas organizadas por controladores y modelos
-- Validación de datos y manejo de errores
-- Preparado para despliegue en Render
+Este repositorio ha sido **reemplazado por dos repositorios separados** para facilitar el despliegue y mantenimiento:
 
-## 🛠️ Tecnologías utilizadas
+- 🔙 [Little Lemon Backend](https://github.com/BaltazarCaceres/little-lemon-backend)
+- 🔜 [Little Lemon Frontend](https://github.com/BaltazarCaceres/little-lemon-frontend)
 
-- Node.js
-- Express.js
-- MongoDB Atlas
-- Mongoose
-- Git + GitHub
-- Render (para despliegue)
+## 🧠 ¿Por qué se separó?
 
-## 📁 Estructura del proyecto
+Render requiere configuraciones distintas para proyectos de frontend (React) y backend (Node.js). Separarlos permite:
 
-server/ 
-├── controllers/ ├── models/ ├── routes/ ├── reservas.json ├── server.js ├── package.json └── render.yaml
+- Desplegar el frontend como Static Site
+- Ejecutar el backend como Web Service
+- Mantener una estructura más limpia y profesional
+
+## 📁 Estructura original
