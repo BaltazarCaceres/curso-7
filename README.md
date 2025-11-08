@@ -18,3 +18,5 @@ Render requiere configuraciones distintas para proyectos de frontend (React) y b
 - Mantener una estructura más limpia y profesional
 
 ## 📁 Estructura original
+
+curso-7/ ├── client/ # Frontend (React) ├── controllers/ # Backend (Node.js) ├── models/ ├── routes/ ├── public/ ├── src/ ├── server.js ├── package.json └── render.yaml
